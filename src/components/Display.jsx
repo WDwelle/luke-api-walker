@@ -4,21 +4,20 @@ import { useParams } from "react-router-dom";
 
 
 const Display = (props) => {
-
+//===UseState is set===
     const [starWarsData, setStarWarsData] = useState({});
     const [isSubmitted, setIssubmitted] = useState(false);
     const {topic, id} = useParams();
-
+//===API call===
     useEffect(() => {
         axios.get(`https://swapi.dev/api/${topic}/${id}`)
         .then(response=>{setStarWarsData(response.data)})
         .then(console.log(starWarsData))
         .catch(() => {console.log("Bad request")});
     }, [id]);
-
+//===Display based off given variables (topic and id===)
     const display = () => {
         if (topic === "films"){
-            console.log("films");   
             return(
                 <div>
                     <h1>{starWarsData.title}</h1>
@@ -29,7 +28,6 @@ const Display = (props) => {
             ) 
         }
         else if(topic === "people") {
-            console.log("people");
             return(
                 <div>
                     <h1>{starWarsData.name}</h1>
@@ -40,7 +38,6 @@ const Display = (props) => {
             ) 
         }
         else if(topic === "planets") {
-            console.log("planets"); 
             return(
                 <div>
                     <h1>{starWarsData.name}</h1>
@@ -50,30 +47,7 @@ const Display = (props) => {
                 </div>
             ) 
         }
-        else if(topic === "species") {
-            console.log("species"); 
-            return(
-                <div>
-                    <h1>{starWarsData.name}</h1>
-                    <h3>Designation: {starWarsData.designation}</h3>
-                    <h3>Classification: {starWarsData.classification}</h3>
-                    <h3>Lifespan: {starWarsData.average_lifespan}</h3>
-                </div>
-            ) 
-        }
         else if(topic === "starships") {
-            console.log("starships");
-            return(
-                <div>
-                    <h1>{starWarsData.name}</h1>
-                    <h3>Passengers: {starWarsData.passengers}</h3>
-                    <h3>Manufactuer: {starWarsData.manufacturer}</h3>
-                    <h3>Cost in Credits: {starWarsData.cost_in_credits}</h3>
-                </div>
-            )   
-        }
-        else if(topic === "vehicles") {
-            console.log("vehicles");  
             return(
                 <div>
                     <h1>{starWarsData.name}</h1>
