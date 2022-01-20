@@ -3,19 +3,21 @@ import {useHistory} from "react-router-dom";
 
 
 const Form = (props) => {
+    //===useState is set===
     const [topic, setTopic] = useState();
     const [id, setId] = useState();
     const history = useHistory();
     
-    const handleFetch = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         history.push(`/${topic}/${id}`);
     };
     
     return(
         <div>
-            <form onSubmit={handleFetch}>
+            <form onSubmit={handleSubmit}>
                 <label>Search for:</label>
+                {/*===Topic select===*/}
                     <select onChange={ (e) => setTopic(e.target.value)} >
                         <option value="">Select Topic...</option>
                         <option value="films">Films</option>
@@ -23,6 +25,7 @@ const Form = (props) => {
                         <option value="planets">Planets</option>
                         <option value="starships">Starships</option>
                     </select>
+                {/*===ID select===*/}
                     <select onChange={ (e) => setId(e.target.value)}>
                         <option value="">ID</option>
                         <option value="1">1</option>

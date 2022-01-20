@@ -17,7 +17,7 @@ const Display = (props) => {
     }, [id]);
 //===Display based off given variables (topic and id===)
     const display = () => {
-        if (topic === "films"){
+        if (topic === "films"){//===films===
             return(
                 <div>
                     <h1>{starWarsData.title}</h1>
@@ -27,30 +27,30 @@ const Display = (props) => {
                 </div>
             ) 
         }
-        else if(topic === "people") {
+        else if(topic === "people") {//===characters===
             return(
                 <div>
-                    <h1>{starWarsData.name}</h1>
+                    <h1>Name: {starWarsData.name}</h1>
                     <h3>Birth Year: {starWarsData.birth_year}</h3>
                     <h3>Height: {starWarsData.height}</h3>
                     <h3>Color: {starWarsData.skin_color}</h3>
                 </div>
             ) 
         }
-        else if(topic === "planets") {
+        else if(topic === "planets") {//===planets===
             return(
                 <div>
-                    <h1>{starWarsData.name}</h1>
+                    <h1>Name: {starWarsData.name}</h1>
                     <h3>Climate: {starWarsData.climate}</h3>
                     <h3>Poulation: {starWarsData.population}</h3>
                     <h3>Terrain: {starWarsData.terrain}</h3>
                 </div>
             ) 
         }
-        else if(topic === "starships") {
+        else if(topic === "starships") {//===star ships===
             return(
                 <div>
-                    <h1>{starWarsData.name}</h1>
+                    <h1>Name: {starWarsData.name}</h1>
                     <h3>Passengers: {starWarsData.passengers}</h3>
                     <h3>Manufactuer: {starWarsData.manufacturer}</h3>
                     <h3>Cost in Credits: {starWarsData.cost_in_credits}</h3>
